@@ -3,7 +3,7 @@ import { RFPercentage } from "react-native-responsive-fontsize"
 import styled from "styled-components"
 import cardImage from "../../../assets/img/bannerWorkout.png"
 import { getStatusbarHeight } from "../../../theme/helpers/getStatusbarHeight"
-import { Flex, Avatar, Stack, Icon, IconButton } from "native-base"
+import { Flex, Avatar, Stack, Icon, IconButton, IFlexProps } from "native-base"
 import { SText } from "../../tools"
 import FiIcon from "@expo/vector-icons/Feather"
 
@@ -11,11 +11,15 @@ const ImageBackgroundStyled = styled(ImageBackground)`
   flex: 1;
 `
 
-export function CardGreetings() {
+type IProps = IFlexProps & {
+  height: number
+}
+
+export function CardGreetings({ height = 25, ...props }: IProps) {
   const statusbarHeight = getStatusbarHeight()
 
   return (
-    <Flex width="100%" height={`${RFPercentage(25)}px`}>
+    <Flex width="100%" height={`${RFPercentage(height)}px`} {...props}>
       <ImageBackgroundStyled source={cardImage} resizeMode="cover">
         <Flex mt={statusbarHeight} pt={8} px={6}>
           <Stack alignItems="center" direction="row" space={6}>
@@ -34,7 +38,11 @@ export function CardGreetings() {
                 Bem vindo de volta!
               </SText>
             </Flex>
-            <IconButton ml="auto" icon={<Icon as={FiIcon} name="list" color="white" size="xl" />} />
+            <IconButton
+              ml="auto"
+              borderRadius="8px"
+              icon={<Icon as={FiIcon} name="list" color="white" size="xl" />}
+            />
           </Stack>
         </Flex>
       </ImageBackgroundStyled>
