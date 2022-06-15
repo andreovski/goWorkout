@@ -5,6 +5,7 @@ import { extendTheme } from "native-base"
 export default extendTheme({
   colors: {
     primary: "#DC6024",
+    primaryDark: "#9E4C14",
     "primary.50": "#DC602499",
 
     lightGrey: "#7F7C78",

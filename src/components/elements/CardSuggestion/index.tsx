@@ -4,6 +4,7 @@ import { SText } from "../../tools"
 import { Box, Flex, IIconProps } from "native-base"
 import { ImageBackground } from "react-native"
 import { usePlataform } from "../../../helpers/usePlataform"
+import { RFValue } from "react-native-responsive-fontsize"
 
 type IProps = IIconProps & {
   icon: any
@@ -22,7 +23,7 @@ const Overlay = styled(Box)`
 
 export const CardSuggestion = ({ icon: Icon, title, size, imgBg }: IProps) => {
   return (
-    <Card mt={6} background="mediumGrey" width={usePlataform(150, 140)} height={usePlataform(150, 140)}>
+    <Card mt={6} background="mediumGrey" width={usePlataform(150, RFValue(130))} height={150}>
       <ImageBackgroundStyled borderRadius={8} source={imgBg} resizeMode="cover">
         <Overlay flex={1}>
           <Flex height="100%" justify="center" align="center">

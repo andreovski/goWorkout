@@ -1,8 +1,7 @@
-import { Box, Flex, Pressable } from "native-base"
+import { Flex, Pressable } from "native-base"
 import { Card } from "../Card"
 
 import { SText } from "../../tools"
-import { ReactNode } from "react"
 
 type IProps = {
   title: string
@@ -26,11 +25,10 @@ export const CardWorkout = ({ title, subtitle, icon: Icon, ...props }: IProps) =
       <Pressable width="100%" height="20%" position="absolute" bottom={0}>
         {({ isPressed }) => (
           <Flex
-            opacity={isPressed ? 0.5 : 1}
             flex={1}
             alignItems="center"
             justifyContent="center"
-            bg="primary"
+            bg={!isPressed ? "primary" : "primary.50"}
             borderBottomRadius={8}
           >
             <SText fontSize={16} fontWeight="semiBold">

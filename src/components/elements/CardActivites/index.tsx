@@ -16,7 +16,7 @@ export const CardActivites = ({ i, items, ...props }: IProps) => {
     <Card
       width={width}
       ml={i === 0 ? 8 : 4}
-      mr={i === items.length - 1 && 8}
+      mr={i === items.length - 1 ? 8 : 0}
       dir="row"
       space={2}
       background="mediumGrey"

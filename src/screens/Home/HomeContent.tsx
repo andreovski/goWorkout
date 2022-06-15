@@ -16,7 +16,7 @@ import { CardSuggestion } from "../../components/elements/CardSuggestion"
 import { Feedback } from "../../components/elements/Feedback"
 
 export const HomeContent = () => {
-  const data = []
+  const data = [{ id: 1 }, { id: 2 }]
 
   return (
     <Box flex={1} my={4}>
@@ -30,6 +30,7 @@ export const HomeContent = () => {
             <FlatList
               data={data}
               horizontal
+              pagingEnabled
               showsHorizontalScrollIndicator={false}
               renderItem={({ index }) => <CardActivites i={index} items={data} />}
             />
