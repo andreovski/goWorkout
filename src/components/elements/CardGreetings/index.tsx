@@ -53,7 +53,7 @@ export function CardGreetings({ height = 25, ...props }: IProps) {
         </ImageBackgroundStyled>
       </Flex>
 
-      {sideBarDisclosure.isOpen && <SideBar {...sideBarDisclosure} />}
+      <SideBar {...sideBarDisclosure} />
     </>
   )
 }

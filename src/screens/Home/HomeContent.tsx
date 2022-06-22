@@ -1,4 +1,4 @@
-import { Flex, Box, Stack, FlatList } from "native-base"
+import { Flex, Box, Stack, FlatList, useDisclose } from "native-base"
 import { SText } from "../../components/tools"
 import { CardActivites } from "../../components/elements/CardActivites"
 
@@ -14,9 +14,16 @@ import RunnersImg from "../../assets/img/CorridaImg.png"
 
 import { CardSuggestion } from "../../components/elements/CardSuggestion"
 import { Feedback } from "../../components/elements/Feedback"
+import { ActiviesDrawer } from "../ActivitiesDrawer"
 
 export const HomeContent = () => {
   const data = [{ id: 1 }, { id: 2 }]
+
+  const activiesDrawerDisclosure = useDisclose()
+
+  const handlePress = () => {
+    activiesDrawerDisclosure.onOpen()
+  }
 
   return (
     <Box flex={1} my={4}>
@@ -32,7 +39,7 @@ export const HomeContent = () => {
               horizontal
               pagingEnabled
               showsHorizontalScrollIndicator={false}
-              renderItem={({ index }) => <CardActivites i={index} items={data} />}
+              renderItem={({ index }) => <CardActivites onPress={handlePress} i={index} items={data} />}
             />
           ) : (
             <Feedback
@@ -55,6 +62,8 @@ export const HomeContent = () => {
           </Flex>
         </Flex>
       </Stack>
+
+      {activiesDrawerDisclosure.isOpen && <ActiviesDrawer {...activiesDrawerDisclosure} />}
     </Box>
   )
 }
