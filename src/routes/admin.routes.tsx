@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator()
 const AdminRoutes = () => {
   return (
     <NavigationContainer independent>
-      <Tab.Navigator screenOptions={tabBarConfig}>
+      <Tab.Navigator screenOptions={{ ...tabBarConfig }}>
         <Tab.Screen
           name="Home"
           component={Home}
